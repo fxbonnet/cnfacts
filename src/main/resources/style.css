@@ -1,0 +1,13 @@
+q {
+    margin-top: 1em;
+    font-size: x-large;
+    display: block;
+}
+
+fieldset {
+    background-color: lightgray;
+}
+
+a {
+    margin-right: 1em;
+}
