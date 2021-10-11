@@ -1,7 +1,6 @@
 package httpserver;
 
 import com.sun.net.httpserver.HttpExchange;
-import org.apache.commons.io.IOUtils;
 import util.Exceptions;
 
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class Request {
     }
     public Map<String, List<String>> decodeBody() {
         try {
-            var requestBody = IOUtils.toString(exchange.getRequestBody(), UTF_8);
+            var requestBody = new String(exchange.getRequestBody().readAllBytes(), UTF_8);
             return Pattern.compile("&")
                     .splitAsStream(requestBody)
                     .map(s -> Arrays.copyOf(s.split("=", 2), 2))
